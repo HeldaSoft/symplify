@@ -16,7 +16,11 @@
         "symfony/http-kernel": "^4.4|^5.2",
         "symplify/php-config-printer": "^9.3",
         "squizlabs/php_codesniffer": "^3.5",
+<<<<<<< HEAD
         "friendsofphp/php-cs-fixer": "^2.18.5",
+=======
+        "friendsofphp/php-cs-fixer": "^3.0",
+>>>>>>> 3079c0973... [composer] allow php-cs-fixer 3.0
         "symplify/symplify-kernel": "^9.3"
     },
     "require-dev": {
