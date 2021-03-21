@@ -521,7 +521,6 @@ parameters:
             message: '#Class cognitive complexity is \d+, keep it under 25#'
             paths:
                 - packages/composer-json-manipulator/src/ValueObject/ComposerJson.php
-<<<<<<< HEAD
 
         # node traverser magic
         -
@@ -557,14 +556,9 @@ parameters:
             message: '#Parameter "docContent" cannot be nullable#'
             paths:
                  - packages/simple-php-doc-parser/src/PhpDocNodeVisitor/CallablePhpDocNodeVisitor.php
-<<<<<<< HEAD
 
         # return type is uknonw, php type is good enough
         -
             message: '#Method Symplify\\EasyHydrator\\TypeCaster\\ArrayTypeCaster\:\:retype\(\) return type has no value type specified in iterable type array#'
             paths:
                 - packages/easy-hydrator/src/TypeCaster/ArrayTypeCaster.php
-=======
-=======
->>>>>>> bc07a4fc7... make conflicts last
->>>>>>> 0bccd9f10 ([ComposerJsonManipulator] Make previous unsorted sections last)

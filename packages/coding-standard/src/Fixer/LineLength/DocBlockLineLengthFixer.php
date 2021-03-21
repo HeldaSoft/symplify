@@ -6,7 +6,6 @@ namespace Symplify\CodingStandard\Fixer\LineLength;
 
 use Nette\Utils\Strings;
 use PhpCsFixer\Fixer\ConfigurableFixerInterface;
-use PhpCsFixer\FixerConfiguration\FixerConfigurationResolver;
 use PhpCsFixer\FixerConfiguration\FixerConfigurationResolverInterface;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
@@ -171,6 +170,11 @@ CODE_SAMPLE
         ]);
     }
 
+    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
+    {
+        throw new ShouldNotHappenException();
+    }
+
     private function resolveIndentationStringFor(string $docBlock): string
     {
         $matches = Strings::match($docBlock, self::INDENTATION_BEFORE_ASTERISK_REGEX);
@@ -221,10 +225,5 @@ CODE_SAMPLE
     private function getLines(string $string): array
     {
         return explode(PHP_EOL, $string);
-    }
-
-    public function getConfigurationDefinition(): FixerConfigurationResolverInterface
-    {
-        throw new ShouldNotHappenException();
     }
 }
