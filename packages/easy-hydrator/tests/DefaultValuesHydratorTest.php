@@ -7,6 +7,7 @@ namespace Symplify\EasyHydrator\Tests;
 use Symplify\EasyHydrator\ArrayToValueObjectHydrator;
 use Symplify\EasyHydrator\Exception\MissingDataException;
 use Symplify\EasyHydrator\Tests\Fixture\DefaultValuesConstructor;
+use Symplify\EasyHydrator\Tests\Fixture\Person;
 use Symplify\EasyHydrator\Tests\HttpKernel\EasyHydratorTestKernel;
 use Symplify\PackageBuilder\Testing\AbstractKernelTestCase;
 
@@ -43,6 +44,24 @@ final class DefaultValuesHydratorTest extends AbstractKernelTestCase
 
         $this->assertNull($object->getFoo());
         $this->assertNull($object->getPerson());
+        $this->assertSame('baz', $object->getBar());
+    }
+
+    public function testDefaultValuesWithPersonNotNull(): void
+    {
+        $person = new Person('John Doe');
+
+        $data = [
+            'foo' => null,
+            'bar' => 'baz',
+            'person' => $person,
+        ];
+
+        /** @var DefaultValuesConstructor $object */
+        $object = $this->arrayToValueObjectHydrator->hydrateArray($data, DefaultValuesConstructor::class);
+
+        $this->assertNull($object->getFoo());
+        $this->assertSame($person, $object->getPerson());
         $this->assertSame('baz', $object->getBar());
     }
 }
