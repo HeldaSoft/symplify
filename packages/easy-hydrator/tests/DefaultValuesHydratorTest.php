@@ -46,22 +46,4 @@ final class DefaultValuesHydratorTest extends AbstractKernelTestCase
         $this->assertNull($object->getPerson());
         $this->assertSame('baz', $object->getBar());
     }
-
-    public function testDefaultValuesWithPersonNotNull(): void
-    {
-        $person = new Person('John Doe');
-
-        $data = [
-            'foo' => null,
-            'bar' => 'baz',
-            'person' => $person,
-        ];
-
-        /** @var DefaultValuesConstructor $object */
-        $object = $this->arrayToValueObjectHydrator->hydrateArray($data, DefaultValuesConstructor::class);
-
-        $this->assertNull($object->getFoo());
-        $this->assertSame($person, $object->getPerson());
-        $this->assertSame('baz', $object->getBar());
-    }
 }
